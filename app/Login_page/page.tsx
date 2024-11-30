@@ -20,6 +20,27 @@ export default function LoginPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Basic validation for email and password
+  const validateForm = () => {
+    if (!formData.first_name || !formData.last_name || !formData.email || !formData.password || !formData.password_confirmation) {
+      setError("Please fill all fields.");
+      return false;
+    }
+    if (formData.password !== formData.password_confirmation) {
+      setError("Passwords do not match.");
+      return false;
+    }
+    if (formData.password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setError("Please enter a valid email.");
+      return false;
+    }
+    return true;
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,15 +48,14 @@ export default function LoginPage() {
     setError("");
     setSuccess("");
 
-    // Basic validation (you can add more if necessary)
-    if (formData.password !== formData.password_confirmation) {
-      setError("Passwords do not match");
+    // Validate form before submitting
+    if (!validateForm()) {
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("/api/register", {
+      const response = await fetch('/api/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +86,6 @@ export default function LoginPage() {
 
       <section className="bg-pink-100">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-          {/* Left Section with Image */}
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
             <img
               alt=""
@@ -75,10 +94,8 @@ export default function LoginPage() {
             />
           </aside>
 
-          {/* Right Section with Form */}
           <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
             <div className="max-w-xl lg:max-w-3xl animate-slideInFromLeft">
-              {/* Logo */}
               <a className="block text-blue-600" href="#">
                 <Image
                   src="book-2-svgrepo-com.svg"
@@ -88,27 +105,22 @@ export default function LoginPage() {
                 />
               </a>
 
-              {/* Heading */}
               <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                 Welcome to Studify
               </h1>
 
-              {/* Description */}
               <p className="mt-4 leading-relaxed text-gray-500">
                 Connect, collaborate, and grow with fellow students. Log in to
                 start networking, sharing ideas, and building your community!
               </p>
 
-              {/* Form */}
               <form
                 onSubmit={handleSubmit}
                 className="mt-8 grid grid-cols-6 gap-6 animate-fadeIn"
               >
+                {/* First Name */}
                 <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="FirstName"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
                     First Name
                   </label>
                   <input
@@ -121,11 +133,9 @@ export default function LoginPage() {
                   />
                 </div>
 
+                {/* Last Name */}
                 <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="LastName"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="LastName" className="block text-sm font-medium text-gray-700">
                     Last Name
                   </label>
                   <input
@@ -138,11 +148,9 @@ export default function LoginPage() {
                   />
                 </div>
 
+                {/* Email */}
                 <div className="col-span-6">
-                  <label
-                    htmlFor="Email"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
                     Email
                   </label>
                   <input
@@ -155,11 +163,9 @@ export default function LoginPage() {
                   />
                 </div>
 
+                {/* Password */}
                 <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="Password"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
                     Password
                   </label>
                   <input
@@ -173,11 +179,9 @@ export default function LoginPage() {
                   />
                 </div>
 
+                {/* Password Confirmation */}
                 <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="PasswordConfirmation"
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label htmlFor="PasswordConfirmation" className="block text-sm font-medium text-gray-700">
                     Password Confirmation
                   </label>
                   <input
@@ -191,18 +195,11 @@ export default function LoginPage() {
                   />
                 </div>
 
-                {error && (
-                  <div className="col-span-6 text-red-600 text-sm">
-                    {error}
-                  </div>
-                )}
+                {/* Error/Success Messages */}
+                {error && <div className="col-span-6 text-red-600 text-sm">{error}</div>}
+                {success && <div className="col-span-6 text-green-600 text-sm">{success}</div>}
 
-                {success && (
-                  <div className="col-span-6 text-green-600 text-sm">
-                    {success}
-                  </div>
-                )}
-
+                {/* Submit Button */}
                 <div className="col-span-6 sm:flex sm:items-center sm:gap-[5px]">
                   <button
                     type="submit"
@@ -211,12 +208,10 @@ export default function LoginPage() {
                   >
                     {loading ? "Creating account..." : "Create an account"}
                   </button>
+
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0 flex-col gap-[5px]">
                     <span>Already have an account?</span>
-                    <a
-                      href="#"
-                      className="ml-[10px] text-gray-500 w-[200px] h-[200px] text-[25px] font-semibold"
-                    >
+                    <a href="#" className="ml-[10px] text-gray-500 text-[25px] font-semibold">
                       Log in
                     </a>
                     .

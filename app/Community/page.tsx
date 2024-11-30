@@ -239,15 +239,15 @@ const CommunityPage = () => {
           <ul className="bg-white shadow rounded-lg p-6 space-y-4">
             <li className="flex justify-between items-center">
               <span className="text-gray-800">How to start with AI projects?</span>
-              <button className="text-pink-500 hover:font-semibold">View</button>
+              <a href="https://medium.com/@sadafsaleem5815/comprehensive-guide-to-starting-your-ai-project-from-idea-to-implementation-7a819b19e9bb" className="text-pink-500 hover:font-semibold">View</a>
             </li>
             <li className="flex justify-between items-center">
               <span className="text-gray-800">Best tools for web development in 2024?</span>
-              <button className="text-pink-500 hover:font-semibold">View</button>
+              <a href="https://www.designrush.com/agency/web-development-companies/trends/web-development-tools" className="text-pink-500 hover:font-semibold">View</a>
             </li>
             <li className="flex justify-between items-center">
               <span className="text-gray-800">Looking for startup collaborators</span>
-              <button className="text-pink-500 hover:font-semibold">View</button>
+              <a href="https://www.linkedin.com/advice/3/how-can-you-identify-potential-partners-collaborators-lmcpc" className="text-pink-500 hover:font-semibold">View</a>
             </li>
           </ul>
         </div>

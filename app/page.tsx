@@ -111,9 +111,11 @@ function HeroSection() {
       className="px-8 py-3 bg-pink-500 text-white rounded-full font-medium hover:bg-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-pink-200">
       Get Started
     </Link>
+    <Link href="/Community">
           <button className="px-8 py-3 bg-white text-pink-500 rounded-full font-medium hover:bg-pink-50 transform hover:scale-105 transition-all duration-300 shadow-lg" >
             Explore
           </button>
+     </Link>
         </div>
       </div>
       <div className="absolute bottom-10 animate-bounce">
@@ -224,6 +226,53 @@ function ResourcesSection() {
     
   );
 }
+function Linked() {
+   return(
+    <>
+    {/* Features Section */}
+<section className="py-12 px-6">
+  <div className="max-w-6xl mx-auto space-y-12">
+    {/* Previous Features Sections Here... */}
+  </div>
+</section>
+
+{/* University Search Engine Section */}
+<section className="bg-pink-100 py-12 px-6 rounded-lg shadow-lg">
+  <div className="max-w-6xl mx-auto text-center space-y-6">
+    <h2 className="text-4xl font-semibold text-gray-800">Introducing University Search Engine</h2>
+    <p className="text-lg text-gray-600">
+      Discover universities worldwide with ease! Our University Search Engine allows you to search for universities, 
+      compare programs, and access detailed information to help you make informed decisions about your academic future.
+    </p>
+    <a 
+      href="/University" 
+      className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-pink-700 transition duration-300"
+    >
+      Explore University Search
+    </a>
+  </div>
+</section>
+
+{/* Demo Page Section */}
+<section className="bg-pink-100 py-12 px-6 rounded-lg shadow-lg mt-12">
+  <div className="max-w-6xl mx-auto text-center space-y-6">
+    <h2 className="text-4xl font-semibold text-gray-800">Explore our Demo</h2>
+    <p className="text-lg text-gray-600">
+      Want to see how it works? Visit our demo page to experience the University Search Engine in action. 
+      Test out the live search functionality and see how easy it is to find the perfect university for you.
+    </p>
+    <a 
+      href="/profile" 
+      className="inline-block px-6 py-3 bg-pink-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-pink-700 transition duration-300"
+    >
+      Go to Demo Page
+    </a>
+  </div>
+</section>
+
+    </>
+   )
+}
 export function CTASection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -282,6 +331,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturesSection />
+      <Linked/>
       <StatsSection />
       <TestimonialSection />
       <ResourcesSection />
