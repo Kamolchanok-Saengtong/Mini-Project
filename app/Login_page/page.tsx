@@ -211,7 +211,7 @@ export default function LoginPage() {
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0 flex-col gap-[5px]">
                     <span>Already have an account?</span>
-                    <a href="#" className="ml-[10px] text-gray-500 text-[25px] font-semibold">
+                    <a href="/login" className="ml-[10px] text-gray-500 text-[25px] font-semibold">
                       Log in
                     </a>
                     .
