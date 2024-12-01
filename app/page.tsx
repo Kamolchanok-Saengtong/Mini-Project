@@ -113,7 +113,7 @@ function HeroSection() {
     </Link>
     <Link href="/Community">
           <button className="px-8 py-3 bg-white text-pink-500 rounded-full font-medium hover:bg-pink-50 transform hover:scale-105 transition-all duration-300 shadow-lg" >
-            Explore
+            Explore now
           </button>
      </Link>
         </div>

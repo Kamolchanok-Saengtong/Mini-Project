@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,12 +32,20 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-pink-100">
+    <div className="flex flex-col items-center justify-center min-h-screen h-screen bg-pink-100">
+      <div className='flex justify-center items-center'>
+      <Image
+            alt="Avatar"
+            src="Bear.jpeg"
+            className="h-[300px] w-[300px] object-cover rounded-full z-10 "
+          />
+      </div>
       <form
         onSubmit={handleLogin}
         className="w-full max-w-sm bg-pink-200 shadow-md rounded px-8 pt-6 pb-8"
       >
-        <h1 className="text-2xl font-bold text-pink-800 mb-4">Log In</h1>
+        <h1 className="text-2xl font-bold text-pink-800 mb-4">Log In now!, Cutie
+        </h1>
         <div className="mb-4">
           <label htmlFor="email" className="block text-pink-700 font-bold mb-2">
             Email
