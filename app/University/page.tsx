@@ -46,7 +46,7 @@ export default function UniversitySearch() {
               <a href="/" className="hover:text-pink-900 transition">Home</a>
             </li>
             <li>
-              <a href="/community" className="hover:text-pink-900 transition">Find your community</a>
+              <a href="/Community" className="hover:text-pink-900 transition">Find your community</a>
             </li>
           </ul>
         </div>
@@ -124,7 +124,7 @@ export default function UniversitySearch() {
               ))
             ) : (
               <p className="text-pink-600 text-center col-span-full">
-                No universities found. Try another search!
+                No universities found. Try another search!🎀✨
               </p>
             )}
           </div>

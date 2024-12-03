@@ -59,24 +59,24 @@ const CommunityPage = () => {
     <div className="min-h-screen bg-pink-50 flex flex-col md:flex-row">
       {/* Sidebar */}
 <aside
-  className={`sticky top-0 bg-pink-100 h-screen w-1/12 p-4 hidden md:block`}
+  className={`sticky top-0 bg-pink-300 h-screen w-1/12 p-4 hidden md:block`}
 >
   <nav className="space-y-4">
     <a
       href="#featured"
-      className="block text-gray-800 hover:underline hover:font-semibold"
+      className="block text-gray-800 font-semibold hover:underline hover:font-semibold"
     >
       Featured Community
     </a>
     <a
       href="#popular"
-      className="block text-gray-800 hover:underline hover:font-semibold"
+      className="block text-gray-800 font-semibold hover:underline hover:font-semibold"
     >
       Popular Communities
     </a>
     <a
       href="#discussions"
-      className="block text-gray-800 hover:underline hover:font-semibold"
+      className="block text-gray-800 font-semibold hover:underline hover:font-semibold"
     >
       Recent Discussions
     </a>
@@ -134,8 +134,15 @@ const CommunityPage = () => {
 
       <div className="flex-grow">
         {/* Hero Section */}
-        <header className="bg-pink-200 py-16 text-center">
-          <h1 className="text-4xl font-bold text-gray-800 hover:scale-105 transition-transform duration-200">
+        <header className="bg-pink-200 py-32 text-center">
+          <div className='flex justify-center items-center'>
+        <img
+            alt="Avatar"
+            src="cute.jpeg"
+            className="h-[300px] w-[300px] object-cover rounded-full z-10 flex justify-center items-center "
+          />
+          </div>
+          <h1 className="text-4xl mt-[30px] font-bold text-gray-800 hover:scale-105 transition-transform duration-200">
             Discover Your Community World
           </h1>
           <p className="text-gray-700 mt-4 text-lg">
