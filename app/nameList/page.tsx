@@ -33,9 +33,16 @@ const NameListPage = () => {
 
   return (
     <div className="min-h-screen bg-pink-100 py-12 px-4">
+      
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-pink-600 mb-8">Customer List (Admin)</h1>
-        
+        <h1 className="text-4xl font-bold text-center text-pink-600 mb-8">Customer List (available for Admin)</h1>
+        <div className='flex flex-col justify-items items-center mb-[30px]'>
+        <img
+            alt="Avatar"
+            src="Bear.jpeg"
+            className="h-[300px] w-[300px] object-cover rounded-full z-10 flex justify-items items-center "
+          />
+          </div>
         {/* User Cards Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {users.map((user: any) => (

@@ -1,36 +1,28 @@
-'use client'
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'; ;
+'use client';
 
-export default function Login() {
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  // Correct admin credentials
+  const adminEmail = 'IamtherealAdmin@hotmail.com';
+  const adminPassword = 'imcreamy12';
+
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage(`Welcome, ${data.user.firstName} ${data.user.lastName}!`);
-        setTimeout(() => {
-          router.push('/Community'); // Redirect to profile page
-        }, 2000); // Add a 2-second delay to show success message
-      } else {
-        setMessage(data.error);
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage('An error occurred. Please try again.');
+    if (email === adminEmail && password === adminPassword) {
+      setMessage('Login successful. Redirecting to Name List...');
+      setTimeout(() => {
+        router.push('/nameList'); // Redirect to the name list page
+      }, 2000);
+    } else {
+      setMessage('404 - You don’t have permission to see this page!');
     }
   };
 
@@ -40,7 +32,7 @@ export default function Login() {
         className="w-full max-w-sm bg-pink-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleLogin}
       >
-        <h2 className="text-2xl font-bold text-pink-800 mb-4 text-center">Log In</h2>
+        <h2 className="text-2xl font-bold text-pink-800 mb-4 text-center">Admin Login</h2>
         <div className="mb-4">
           <label
             className="block text-pink-700 text-sm font-bold mb-2"
